@@ -285,6 +285,7 @@ bool RenderPage(const std::string& name,
     const char* buffer = reinterpret_cast<const char*>(FPDFBitmap_GetBuffer(bitmap));
 
     WriteJpg(name.c_str(), page_index, buffer, stride, width, height, options.output_pattern);
+    fprintf(stdout, "=> Progress: page %d %dx%d rendered.\n", page_index, width, height);
 
     FPDFBitmap_Destroy(bitmap);
   } else {
